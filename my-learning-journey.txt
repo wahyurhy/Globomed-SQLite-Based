@@ -2,8 +2,10 @@ halo, perkenalkan aku Wahyu Rahayu, dan sekarang aku sedang menempuh pendidikan 
 aku tertarik dengan topik android dan uiux, dan ingin menyelam ke lautan ilmu yang luas agar kelak ilmu aku bisa ikut membangun negri ini bersama-sama.
 
 berikut rencana belajarku:
-1. java fundamental
-2. java oop
-3. kotlin fundamental
-4. kotlin for Android Dev
+- java fundamental
+- java oop
+- kotlin fundamental
+- kotlin for Android Dev
+- ui ux fundamental
+- ui ux for Android Dev
 
