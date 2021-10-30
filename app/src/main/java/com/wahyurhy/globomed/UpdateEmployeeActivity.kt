@@ -1,7 +1,10 @@
 package com.wahyurhy.globomed
 
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_add.*
 import java.text.SimpleDateFormat
@@ -73,6 +76,20 @@ class UpdateEmployeeActivity: AppCompatActivity() {
 
 
 		if (isValid) {
+
+			val updateName = etEmpName.text.toString()
+			val updateDOB = myCalendar.timeInMillis
+			val updateDesignation = etDesignation.text.toString()
+
+			val updatedEmployee = Employee(empId!!, updateName, updateDOB, updateDesignation)
+
+			DataManager.updateEmployee(databaseHelper, updatedEmployee)
+
+			setResult(Activity.RESULT_OK, Intent())
+
+			Toast.makeText(applicationContext, "Employee Updated", Toast.LENGTH_SHORT).show()
+
+			finish()
 
 		}
 	}

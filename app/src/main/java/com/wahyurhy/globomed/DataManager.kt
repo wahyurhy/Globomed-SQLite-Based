@@ -1,5 +1,6 @@
 package com.wahyurhy.globomed
 
+import android.content.ContentValues
 import com.wahyurhy.globomed.GloboMedDBContract.EmployeeEntry
 
 object DataManager {
@@ -85,5 +86,21 @@ object DataManager {
 
         cursor.close()
         return employee
+    }
+
+    fun updateEmployee(databaseHelper: DatabaseHelper, employee: Employee) {
+
+        val db = databaseHelper.writableDatabase
+
+        val values = ContentValues()
+        values.put(EmployeeEntry.COLUMN_NAME, employee.name)
+        values.put(EmployeeEntry.COLUMN_DESIGNATION, employee.designation)
+        values.put(EmployeeEntry.COLUMN_DOB, employee.dob)
+
+        val selection = EmployeeEntry.COLUMN_ID + " LIKE ? "
+
+        val selectionArgs = arrayOf(employee.id)
+
+        db.update(EmployeeEntry.TABLE_NAME, values, selection, selectionArgs)
     }
 }
